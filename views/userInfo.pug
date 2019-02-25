@@ -1,0 +1,112 @@
+extends head
+
+block content
+    h1= title
+    p Here you can view unified content from Facebook and Twitter
+    br
+    body
+        div(class='sidenav')
+            a(href='\/eSymposium/home') Home
+            a(href='\#userInfo') User Information
+            a(href='\#userTweets') View Tweets
+            a(href='\#userPosts') View Facebook Posts
+
+        div(class='main')
+            div(id='userInfo')
+                table.table.table-hover.table-bordered
+
+                    caption Basic User Information
+
+                    tr
+                        th
+                        td Profile Picture
+                        td Account Username
+                        td Account Description
+
+                    tr
+                        th Facebook Information
+                        td
+                            img(src=(user.facebookUser.profilePictureUrl))
+                        td=user.facebookUser.username
+                        td=user.facebookUser.description
+
+                    tr
+                        th Twitter Information
+                        td
+                            img(src=(user.twitterUser.profilePictureUrl))
+                        td=user.twitterUser.username
+                        td=user.twitterUser.description
+            br
+            div(id='userTweets')
+                table.table.table-hover.table-bordered
+
+                    caption User Tweets
+
+                    each tweet in tweets
+                        tr
+                            th Description
+                            td=tweet.text
+                        tr
+                            th Retweets
+                            td=tweet.retweets
+                        tr
+                            th Likes
+                            td=tweet.likes
+                        tr
+                            th Date Posted
+                            td=tweet.timestamp
+            br
+            div(id='userPosts')
+                table.table.table-hover.table-bordered
+
+                    caption User Posts
+
+                    each post in posts
+                        tr
+                            th Description
+                            td=post.descriptionText
+                        tr
+                            th Retweets
+                            td=post.reactions
+                        tr
+                            th Likes
+                            td=post.totalComments
+                        tr
+                            th Date Posted
+                            td=post.timestamp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

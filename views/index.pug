@@ -1,0 +1,10 @@
+doctype html
+html
+    include head.pug
+    body
+        div
+            select(name="userSelection", id="userSelection", onChange=`viewDetails();`)
+                option(value='Please select a user', selected, disabled) #{'Please select a user'}
+                each user in users
+                    option(value=user.symposiumUsername) #{user.symposiumUsername}
+
